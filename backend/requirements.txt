@@ -1,0 +1,28 @@
+# ─── Core ───
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+aiofiles==24.1.0
+websockets==14.1
+
+# ─── Database ───
+sqlalchemy==2.0.36
+pymysql==1.1.1
+cryptography==44.0.0
+alembic==1.14.1
+
+# ─── Auth ───
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.1
+
+# ─── AI / 3D ───
+torch>=2.1.0
+Pillow==11.1.0
+numpy>=1.26.0
+trimesh==4.5.3
+rembg==2.0.62
+
+# ─── Config ───
+pydantic-settings==2.7.1
+python-dotenv==1.0.1
