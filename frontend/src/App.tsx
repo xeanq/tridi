@@ -21,7 +21,7 @@ function App() {
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
-            <main>
+            <main className="pb-24 sm:pb-0">
                 <Routes>
                     <Route path="/" element={<Landing />} />
                     <Route path="/login" element={<Login />} />
