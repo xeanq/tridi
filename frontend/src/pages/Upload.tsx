@@ -77,7 +77,7 @@ export default function Upload() {
                     <h1 className="text-4xl md:text-5xl font-bold mb-3">
                         Создать <span className="text-gradient">3D-модель</span>
                     </h1>
-                    <p className="text-white/40">Загрузите фото объекта — ИИ сделает всё остальное</p>
+                    <p className="text-white/40">Загрузите фото объекта — мы создадим 3D-модель</p>
                 </motion.div>
 
                 {/* Drop Zone */}
@@ -168,7 +168,7 @@ export default function Upload() {
                                         />
                                     </div>
                                     <p className="text-white/40 text-sm">
-                                        {progress < 100 ? `Генерация модели... ${Math.round(progress)}%` : 'Готово!'}
+                                        {progress < 100 ? `Создание модели... ${Math.round(progress)}%` : 'Готово!'}
                                     </p>
                                 </div>
                             )}

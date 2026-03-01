@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { Camera, Brain, Box, Zap, Palette, Share2, Heart, Lock, ArrowRight, Upload } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+import { Camera, Clock, Box, Zap, Palette, Share2, Heart, Lock, ArrowRight, Upload } from 'lucide-react'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -19,13 +19,7 @@ const stagger = {
 }
 
 export default function Landing() {
-    const heroRef = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: heroRef,
-        offset: ['start start', 'end start'],
-    })
-    const logoY = useTransform(scrollYProgress, [0, 1], [0, -80])
-    const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
 
     return (
         <div className="min-h-screen relative overflow-hidden">
@@ -54,9 +48,9 @@ export default function Landing() {
             </div>
 
             {/* ═══ HERO ═══ */}
-            <section ref={heroRef} className="relative pt-32 pb-20">
+            <section className="relative pt-32 pb-20">
                 <div className="max-w-7xl mx-auto px-6 text-center">
-                    <motion.div style={{ y: logoY }} className="flex justify-center mb-10">
+                    <motion.div className="flex justify-center mb-10">
                         <motion.img
                             initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -67,7 +61,7 @@ export default function Landing() {
                         />
                     </motion.div>
 
-                    <motion.div style={{ opacity: textOpacity }}>
+                    <motion.div>
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -85,7 +79,7 @@ export default function Landing() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-12 leading-relaxed"
                         >
-                            Загрузите фотографию — искусственный интеллект создаст полноценную
+                            Загрузите фотографию — и получите полноценную
                             3D-модель для печати, дизайна и прототипирования за секунды
                         </motion.p>
 
@@ -114,7 +108,7 @@ export default function Landing() {
                         className="mt-20 flex items-center justify-center gap-12 md:gap-20"
                     >
                         {[
-                            { value: '< 30с', label: 'Генерация модели' },
+                            { value: '< 60с', label: 'Создание модели' },
                             { value: '4', label: 'Формата экспорта' },
                             { value: '100%', label: 'Бесплатно' },
                         ].map((stat) => (
@@ -128,14 +122,14 @@ export default function Landing() {
             </section>
 
             {/* ═══ HOW IT WORKS ═══ */}
-            <section className="relative py-32">
+            <section className="relative py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: '-100px' }}
                         variants={stagger}
-                        className="text-center mb-20"
+                        className="text-center mb-14"
                     >
                         <motion.div variants={fadeUp} custom={0}>
                             <span className="text-sm font-mono text-accent-light tracking-widest uppercase">Процесс</span>
@@ -162,9 +156,9 @@ export default function Landing() {
                             },
                             {
                                 step: '02',
-                                title: 'ИИ создаёт модель',
-                                desc: 'Нейросеть TripoSR генерирует 3D-меш менее чем за минуту',
-                                icon: Brain,
+                                title: 'Подождите немного',
+                                desc: 'Модель создаётся автоматически менее чем за минуту',
+                                icon: Clock,
                                 color: '#3EB2EB',
                             },
                             {
@@ -201,14 +195,14 @@ export default function Landing() {
             </section>
 
             {/* ═══ FEATURES ═══ */}
-            <section className="relative py-32">
+            <section className="relative py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: '-100px' }}
                         variants={stagger}
-                        className="text-center mb-20"
+                        className="text-center mb-14"
                     >
                         <motion.div variants={fadeUp} custom={0}>
                             <span className="text-sm font-mono text-accent-light tracking-widest uppercase">Возможности</span>
@@ -226,7 +220,7 @@ export default function Landing() {
                         className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
                     >
                         {[
-                            { icon: Zap, title: 'Мгновенная генерация', desc: 'Модель готова менее чем за 30 секунд', color: '#3EB2EB' },
+                            { icon: Zap, title: 'Быстрое создание', desc: 'Модель готова менее чем за 30 секунд', color: '#3EB2EB' },
                             { icon: Palette, title: '3D-редактор', desc: 'Встроенный редактор прямо в браузере', color: '#7566D8' },
                             { icon: Share2, title: 'Множество форматов', desc: 'Экспорт в STL, OBJ, 3MF и AMF', color: '#AE51E4' },
                             { icon: Camera, title: 'Социальная лента', desc: 'Делитесь моделями с сообществом', color: '#3EB2EB' },
@@ -247,7 +241,7 @@ export default function Landing() {
             </section>
 
             {/* ═══ CTA ═══ */}
-            <section className="relative py-32">
+            <section className="relative py-20">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <motion.div
                         initial="hidden"
