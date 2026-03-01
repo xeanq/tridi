@@ -75,7 +75,7 @@ export default function Register() {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
-                                minLength={3}
+                                minLength={5}
                                 className="input-field pl-11"
                                 placeholder="username"
                             />
@@ -104,9 +104,9 @@ export default function Register() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                minLength={6}
+                                minLength={8}
                                 className="input-field pl-11"
-                                placeholder="Минимум 6 символов"
+                                placeholder="Минимум 8 символов"
                             />
                         </div>
                     </div>

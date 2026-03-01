@@ -6,9 +6,9 @@ from datetime import datetime
 # ─── Auth ───
 
 class UserRegister(BaseModel):
-    username: str = Field(..., min_length=3, max_length=50)
+    username: str = Field(..., min_length=5, max_length=50)
     email: EmailStr
-    password: str = Field(..., min_length=6, max_length=128)
+    password: str = Field(..., min_length=8, max_length=128)
     display_name: Optional[str] = Field(None, max_length=100)
 
 
@@ -32,8 +32,10 @@ class TokenRefresh(BaseModel):
 class UserPublic(BaseModel):
     id: int
     username: str
+    email: Optional[str] = None
     display_name: Optional[str] = None
     avatar_url: Optional[str] = None
+    role: str = "user"
     created_at: datetime
 
     class Config:
